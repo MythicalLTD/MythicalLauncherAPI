@@ -17,6 +17,11 @@ if (isset($_GET['email'] , $_GET['pass']))
         if ($getusrinfo['isbanned'] == "0")
         {
             $gtusrdata = $mconn->query("SELECT * FROM users WHERE email='$email' AND password='$pass'")->fetch_array();
+            if (isset($_GET['get'])) {
+                $json = $gtusrdata["username"];
+            }
+            else
+            {
 $json = '{
     "Username": "'.$gtusrdata["username"].'",
     "Email": "'.$gtusrdata["email"].'",
@@ -25,6 +30,8 @@ $json = '{
     "Admin": "'.$gtusrdata["isadmin"].'",
     "Banned": "'.$gtusrdata["isbanned"].'",
 }';
+            }
+
 echo $json; 
         }
         else
