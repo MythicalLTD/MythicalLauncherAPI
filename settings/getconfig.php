@@ -15,6 +15,13 @@ $json = '{
     "appWebsite": "'.$getsetitngs['appWebsite'].'",
     "appStore": "'.$getsetitngs['appStore'].'",
     "appLang": "'.$getsetitngs['appLang'].'",
+    "enable_discordrpc": "'.$getsetitngs['enable_discordrpc'].'",
+    "discord_id": "'.$getsetitngs['discord_id'].'",
+    "discordrpc_button1_text": "'.$getsetitngs['discordrpc_button1_text'].'",
+    "discordrpc_button1_url": "'.$getsetitngs['discordrpc_button1_url'].'",
+    "discordrpc_button2_text": "'.$getsetitngs['discordrpc_button2_text'].'",
+    "discordrpc_button2_url": "'.$getsetitngs['discordrpc_button2_url'].'",
+    "discordrpc_description": "'.$getsetitngs['discordrpc_description'].'",
 }
 ';
 echo $json;
