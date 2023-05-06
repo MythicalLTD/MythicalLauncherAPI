@@ -22,6 +22,8 @@ $json = '{
     "discordrpc_button2_text": "'.$getsetitngs['discordrpc_button2_text'].'",
     "discordrpc_button2_url": "'.$getsetitngs['discordrpc_button2_url'].'",
     "discordrpc_description": "'.$getsetitngs['discordrpc_description'].'",
+    "enable_auto_joiner": "'.$getsetitngs['enable_auto_joiner'].'",
+    "auto_joiner_ip": "'.$getsetitngs['auto_joiner_ip'].'"
 }
 ';
 echo $json;

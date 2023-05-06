@@ -17,20 +17,32 @@ if (isset($_GET['email'] , $_GET['pass']))
         if ($getusrinfo['isbanned'] == "0")
         {
             $gtusrdata = $mconn->query("SELECT * FROM users WHERE email='$email' AND password='$pass'")->fetch_array();
-            if (isset($_GET['get'])) {
-                $json = $gtusrdata["username"];
+            if ($gtusrdata["isadmin"] == "1")
+            {
+                $isadmin = "true";
             }
             else
             {
+                $isadmin = "false";
+            }
+            if ($gtusrdata["isbanned"] == "1")
+            {
+                $isbanned = "true";
+            }
+            else
+            {
+                $isbanned = "false";
+            }
+           
 $json = '{
     "Username": "'.$gtusrdata["username"].'",
     "Email": "'.$gtusrdata["email"].'",
     "Password": "'.$gtusrdata["password"].'",
     "Role": "'.$gtusrdata["role"].'",
-    "Admin": "'.$gtusrdata["isadmin"].'",
-    "Banned": "'.$gtusrdata["isbanned"].'",
+    "Admin": "'.$isadmin.'",
+    "Banned": "'.$isbanned.'"
 }';
-            }
+            
 
 echo $json; 
         }
