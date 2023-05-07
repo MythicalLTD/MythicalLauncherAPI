@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 06, 2023 at 11:53 PM
+-- Generation Time: May 07, 2023 at 09:55 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -24,6 +24,26 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `announcements`
+--
+
+CREATE TABLE `announcements` (
+  `id` int(11) NOT NULL,
+  `Title` text NOT NULL,
+  `Description` longtext NOT NULL,
+  `Date` date NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `announcements`
+--
+
+INSERT INTO `announcements` (`id`, `Title`, `Description`, `Date`) VALUES
+(1, 'Welcome to MythicalLauncher', 'Hi thanks for installing MythicalLauncher by MythicalSystems tech if you need any support to setup the launcher please make sure to contact us via Discord at\r\nhttps://dsc.gg/mythicalsystems have fun using our launcher!', '2023-05-07');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `settings`
 --
 
@@ -35,6 +55,7 @@ CREATE TABLE `settings` (
   `appMainColour` text NOT NULL DEFAULT '\'6, 14, 74\'',
   `enable_auto_joiner` enum('true','false') NOT NULL DEFAULT 'true',
   `auto_joiner_ip` text NOT NULL DEFAULT 'play.noxlcraft.ro',
+  `auto_joiner_port` text NOT NULL DEFAULT '25565',
   `appDiscord` text NOT NULL,
   `enable_discordrpc` enum('true','false') NOT NULL DEFAULT 'true',
   `discord_id` text NOT NULL DEFAULT '1038164770244788254',
@@ -54,8 +75,8 @@ CREATE TABLE `settings` (
 -- Dumping data for table `settings`
 --
 
-INSERT INTO `settings` (`id`, `appName`, `appLogo`, `appBg`, `appMainColour`, `enable_auto_joiner`, `auto_joiner_ip`, `appDiscord`, `enable_discordrpc`, `discord_id`, `discordrpc_button1_text`, `discordrpc_button1_url`, `discordrpc_button2_text`, `discordrpc_button2_url`, `discordrpc_description`, `appVote`, `appWebsite`, `appStore`, `appLang`, `appMaintenance`) VALUES
-(1, 'F1xMC', 'https://media.discordapp.net/attachments/1053618904578150430/1068446773410025502/DAS.png', 'https://images5.alphacoders.com/556/556729.jpg', '#F82626', 'false', 'play.noxlcraft.ro', 'https://discord.f1xmc.ro', 'true', '1038164770244788254', 'Github', 'https://github.com/MythicalLTD/MythicalLauncher', 'Website', 'https://mythicalsystems.tech', 'Free custom minecraft launcher!', 'https://vote.f1xmc.ro', 'https://f1xmc.ro', 'https://store.f1xmc.ro', 'en', '1');
+INSERT INTO `settings` (`id`, `appName`, `appLogo`, `appBg`, `appMainColour`, `enable_auto_joiner`, `auto_joiner_ip`, `auto_joiner_port`, `appDiscord`, `enable_discordrpc`, `discord_id`, `discordrpc_button1_text`, `discordrpc_button1_url`, `discordrpc_button2_text`, `discordrpc_button2_url`, `discordrpc_description`, `appVote`, `appWebsite`, `appStore`, `appLang`, `appMaintenance`) VALUES
+(1, 'F1xMC', 'https://media.discordapp.net/attachments/1053618904578150430/1068446773410025502/DAS.png', 'https://images5.alphacoders.com/556/556729.jpg', '#F82626', 'false', 'play.noxlcraft.ro', '25565', 'https://discord.f1xmc.ro', 'true', '1038164770244788254', 'Github', 'https://github.com/MythicalLTD/MythicalLauncher', 'Website', 'https://mythicalsystems.tech', 'Free custom minecraft launcher!', 'https://vote.f1xmc.ro', 'https://f1xmc.ro', 'https://store.f1xmc.ro', 'en', '1');
 
 -- --------------------------------------------------------
 
@@ -78,6 +99,12 @@ CREATE TABLE `users` (
 --
 
 --
+-- Indexes for table `announcements`
+--
+ALTER TABLE `announcements`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `settings`
 --
 ALTER TABLE `settings`
@@ -92,6 +119,12 @@ ALTER TABLE `users`
 --
 -- AUTO_INCREMENT for dumped tables
 --
+
+--
+-- AUTO_INCREMENT for table `announcements`
+--
+ALTER TABLE `announcements`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `settings`
