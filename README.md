@@ -1,2 +1,2 @@
 # MythicalLauncherAPI
-The api for MythicalLauncher
+The PHP API used to run MythicalLauncher (BETA) 
